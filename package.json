@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gen:openapi": "spot generate --contract api.ts --generator openapi3 --language yaml --out=."
   },
   "author": "Jacob Eisenberg <jacobe@github.com>",
   "license": "ISC",
