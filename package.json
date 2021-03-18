@@ -1,0 +1,15 @@
+{
+  "name": "spot-playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jacob Eisenberg <jacobe@github.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@airtasker/spot": "^1.4.0",
+    "typescript": "^4.2.3"
+  }
+}
