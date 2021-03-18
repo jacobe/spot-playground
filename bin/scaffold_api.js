@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 'use strict'
 const ts = require('typescript')
-const { Project, SourceFile, Decorator } = require('ts-morph')
-const { Spot, api } = require('@airtasker/spot')
+const { Project } = require('ts-morph')
 /**
  * @typedef {import('restify').Route} Route
  * @typedef {import('restify').Server} Server
