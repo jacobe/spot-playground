@@ -1,5 +1,5 @@
 # spot-playground
-Experimenting with Spot and OpenAPI client generators
+Experimenting with [Spot](https://github.com/airtasker/spot) and OpenAPI client generators
 
 ## Getting Started
 The workflow is as follows:
