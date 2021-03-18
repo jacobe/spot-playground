@@ -114,17 +114,13 @@ function declareEndpoint (sourceFile, route) {
         }
       ]
     })
-  }
 
-  if (!sourceFile.getInterface(route.name + 'Request')) {
-    const reqInterface = sourceFile.insertInterface(endpointClass.getChildIndex() + 1, {
+    const reqInterface = sourceFile.addInterface({
       name: route.name + 'Request'
     })
     sourceFile.insertText(reqInterface.getLastToken().getPos(), '\n    // TODO: fill')
-  }
 
-  if (!sourceFile.getInterface(route.name + 'Response')) {
-    const resInterface = sourceFile.insertInterface(endpointClass.getChildIndex() + 2, {
+    const resInterface = sourceFile.addInterface({
       name: route.name + 'Response'
     })
     sourceFile.insertText(resInterface.getLastToken().getPos(), '\n    // TODO: fill')

@@ -5,39 +5,39 @@ class Api {
 }
 
 @endpoint({ method: "POST", path: "/login" })
-class postlogin {
+class login {
     @request
-    request(body: postloginRequest) {
+    request(body: loginRequest) {
     }
 
     @response({ status: 200 })
-    response(body: postloginResponse) {
+    response(body: loginResponse) {
     }
 }
 
-interface postloginRequest {
+interface loginRequest {
     // TODO: fill
 }
 
-interface postloginResponse {
+interface loginResponse {
     // TODO: fill
 }
 
 @endpoint({ method: "GET", path: "/whoami" })
-class getwhoami {
+class whoami {
     @request
-    request(body: getwhoamiRequest) {
+    request(body: whoamiRequest) {
     }
 
     @response({ status: 200 })
-    response(body: getwhoamiResponse) {
+    response(body: whoamiResponse) {
     }
 }
 
-interface getwhoamiRequest {
+interface whoamiRequest {
     // TODO: fill
 }
 
-interface getwhoamiResponse {
+interface whoamiResponse {
     // TODO: fill
 }

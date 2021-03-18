@@ -12,7 +12,7 @@ server.use(restify.plugins.bodyParser())
 
 const sessions = {}
 
-server.post('/login', function (req, res, next) {
+server.post({ name: 'login', path: '/login' }, function (req, res, next) {
   console.log(`Logging in with ${req.body.username}`)
   if (req.body.password !== '123') {
     res.send(401)
@@ -30,7 +30,7 @@ server.post('/login', function (req, res, next) {
   return next()
 })
 
-server.get('/whoami', function (req, res, next) {
+server.get({ name: 'whoami', path: '/whoami' }, function (req, res, next) {
   console.log('Whoami')
   const sessionId = req.header('Authorization')
   if (!sessionId || !sessions[sessionId]) {
