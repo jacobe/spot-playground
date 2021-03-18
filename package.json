@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "gen": "npm run gen:spot-contract && npm run gen:openapi && npm run gen:client",
     "gen:spot-contract": "./bin/scaffold_api.js ../server.js",
     "gen:openapi": "spot generate --contract api.ts --generator openapi3 --language yaml --out=.",
     "gen:client": "openapi --input ./api.yml --output ./client --client fetch"
