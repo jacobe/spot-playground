@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "gen:openapi": "spot generate --contract api.ts --generator openapi3 --language yaml --out=."
+    "gen:spot-contract": "./bin/scaffold_api.js ../server.js",
+    "gen:openapi": "spot generate --contract api.ts --generator openapi3 --language json --out=."
   },
   "author": "Jacob Eisenberg <jacobe@github.com>",
   "license": "ISC",
@@ -19,6 +20,7 @@
   },
   "dependencies": {
     "restify": "^8.5.1",
+    "ts-morph": "^10.0.1",
     "uuid": "^8.3.2"
   }
 }
