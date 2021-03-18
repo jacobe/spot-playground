@@ -5,6 +5,7 @@ const { Project } = require('ts-morph')
 /**
  * @typedef {import('restify').Route} Route
  * @typedef {import('restify').Server} Server
+ * @typedef {import('ts-morph').SourceFile} SourceFile
  */
 
 async function main () {
@@ -92,9 +93,8 @@ function declareApi (sourceFile, server) {
  * @param {Route} route
  */
 function declareEndpoint (sourceFile, route) {
-  let endpointClass = sourceFile.getClass(route.name)
-  if (!endpointClass) {
-    endpointClass = sourceFile.addClass({
+  if (!sourceFile.getClass(route.name)) {
+    sourceFile.addClass({
       name: route.name,
       decorators: [{
         name: 'endpoint',
@@ -104,12 +104,12 @@ function declareEndpoint (sourceFile, route) {
         {
           name: 'request',
           decorators: [{ name: 'request' }],
-          parameters: [{ name: 'body', type: route.name + 'Request' }]
+          parameters: [{ name: 'body', decorators: [{ name: 'body' }], type: route.name + 'Request' }]
         },
         {
           name: 'response',
           decorators: [{ name: 'response', arguments: ['{ status: 200 }'] }],
-          parameters: [{ name: 'body', type: route.name + 'Response' }]
+          parameters: [{ name: 'body', decorators: [{ name: 'body' }], type: route.name + 'Response' }]
         }
       ]
     })

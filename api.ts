@@ -7,30 +7,31 @@ class Api {
 @endpoint({ method: "POST", path: "/login" })
 class login {
     @request
-    request(body: loginRequest) {
+    request(@body body: loginRequest) {
     }
 
     @response({ status: 200 })
-    response(body: loginResponse) {
+    response(@body body: loginResponse) {
     }
 }
 
 interface loginRequest {
-    // TODO: fill
+    username: string
+    password: string
 }
 
 interface loginResponse {
-    // TODO: fill
+    sessionId: string
 }
 
 @endpoint({ method: "GET", path: "/whoami" })
 class whoami {
     @request
-    request(body: whoamiRequest) {
+    request(@body body: whoamiRequest) {
     }
 
     @response({ status: 200 })
-    response(body: whoamiResponse) {
+    response(@body body: whoamiResponse) {
     }
 }
 
@@ -39,5 +40,5 @@ interface whoamiRequest {
 }
 
 interface whoamiResponse {
-    // TODO: fill
+    username: string
 }

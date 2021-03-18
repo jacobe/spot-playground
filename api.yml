@@ -3,45 +3,65 @@ info:
   title: Test API
   version: 0.0.0
 paths:
-  /users:
+  /login:
     post:
-      operationId: CreateUser
+      operationId: login
       parameters: []
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateUserRequest'
+              $ref: '#/components/schemas/loginRequest'
         required: true
       responses:
-        '201':
-          description: 201 response
+        '200':
+          description: 200 response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CreateuserResponse'
+                $ref: '#/components/schemas/loginResponse'
+  /whoami:
+    get:
+      operationId: whoami
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/whoamiRequest'
+        required: true
+      responses:
+        '200':
+          description: 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/whoamiResponse'
 components:
   schemas:
-    CreateUserRequest:
+    loginRequest:
       type: object
       properties:
-        firstName:
+        username:
           type: string
-        lastName:
+        password:
           type: string
       required:
-        - firstName
-        - lastName
-    CreateuserResponse:
+        - username
+        - password
+    loginResponse:
       type: object
       properties:
-        firstName:
-          type: string
-        lastName:
-          type: string
-        role:
+        sessionId:
           type: string
       required:
-        - firstName
-        - lastName
-        - role
+        - sessionId
+    whoamiRequest:
+      type: object
+    whoamiResponse:
+      type: object
+      properties:
+        username:
+          type: string
+      required:
+        - username
